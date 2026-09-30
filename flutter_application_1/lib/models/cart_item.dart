@@ -1,0 +1,2 @@
+import 'product.dart';
+class CartItem { final Product product; int quantity; CartItem({required this.product,this.quantity=1}); int get subtotal=>product.price*quantity; Map<String,Object?> toMap()=>{'id':product.id,'product_id':product.id,'name':product.name,'price':product.price.toDouble(),'quantity':quantity}; factory CartItem.fromMap(Map<String,Object?> m)=>CartItem(product:Product(id:m['product_id'].toString(),name:m['name'].toString(),price:(m['price'] as num).toInt()),quantity:(m['quantity'] as num).toInt()); }
